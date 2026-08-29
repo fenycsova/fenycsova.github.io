@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><!-- SZERESZD MEG: a te neved --></title>
+  <title><!-- SZERESZD MEG: oldal címe --></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
@@ -15,9 +15,7 @@
       --accent: #6c63ff;
       --radius: 16px;
     }
-
     * { margin: 0; box-sizing: border-box; }
-
     body {
       font-family: 'Inter', system-ui, sans-serif;
       background: var(--bg);
@@ -26,132 +24,105 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 3rem 1.5rem;
-      line-height: 1.6;
+      padding: 2rem 1.5rem 3rem;
+      line-height: 1.7;
     }
+    main { width: 100%; max-width: 720px; }
 
-    main {
-      width: 100%;
-      max-width: 680px;
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-    }
-
-    /* --- Hero --- */
-    .hero {
-      text-align: center;
-      padding: 2rem 0;
-    }
-    .hero h1 {
-      font-size: clamp(2.2rem, 6vw, 3.2rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p {
-      margin-top: 0.75rem;
-      font-size: 1.1rem;
-      color: var(--muted);
-    }
-
-    /* --- Video card --- */
-    .video-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-    .video-card .wrap {
+    /* --- Video --- */
+    .video-wrap {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      margin-bottom: 3rem;
     }
-    .video-card iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    .video-card .caption {
-      padding: 1rem 1.25rem;
-      font-size: 0.9rem;
-      color: var(--muted);
+    .video-wrap iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; border: 0;
     }
 
-    /* --- Links / social --- */
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      justify-content: center;
+    /* --- Content --- */
+    .content h1 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
     }
-    .links a {
+    .content h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .content p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    /* --- Email button --- */
+    .email-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      background: var(--surface);
-      border: 1px solid rgba(255,255,255,0.08);
+      margin-top: 2.5rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
       border-radius: 99px;
-      color: var(--text);
       text-decoration: none;
-      font-size: 0.9rem;
-      transition: border-color 0.2s, transform 0.2s;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: opacity 0.2s, transform 0.2s;
     }
-    .links a:hover {
-      border-color: var(--accent);
+    .email-btn:hover {
+      opacity: 0.85;
       transform: translateY(-2px);
     }
 
-    /* --- Footer --- */
     footer {
-      margin-top: auto;
-      padding-top: 3rem;
-      font-size: 0.8rem;
+      margin-top: 3rem;
+      font-size: 0.75rem;
       color: var(--muted);
-      text-align: center;
     }
   </style>
 </head>
 <body>
   <main>
 
-    <!-- HERO -->
-    <section class="hero">
+    <!-- VIDEÓ (autoplay) -->
+    <div class="video-wrap">
+      <iframe
+        src="https://makertube.net/videos/embed/<!-- SZERESZD MEG: videó_id -->?autoplay=1"
+        allow="autoplay"
+        allowfullscreen
+        title="Videó">
+      </iframe>
+    </div>
+
+    <!-- SZÖVEG -->
+    <div class="content">
       <h1><!-- SZERESZD MEG: a te neved --></h1>
-      <p><!-- SZERESZD MEG: egy mondatos bemutatkozás --></p>
-    </section>
 
-    <!-- VIDEÓ -->
-    <section class="video-card">
-      <div class="wrap">
-        <iframe
-          src="https://makertube.net/videos/embed/<!-- SZERESZD MEG: videó_id -->"
-          allowfullscreen
-          loading="lazy"
-          title="Videó">
-        </iframe>
-      </div>
-      <div class="caption"><!-- SZERESZD MEG: videó alatti felirat, pl. "Legutóbbi videó" --></div>
-    </section>
+      <p><!-- SZERESZD MEG: bevezető mondatok --></p>
 
-    <!-- LINKEK -->
-    <section class="links">
-      <!-- SZERESZD MEG: add hozzá a saját linkjeidet -->
-      <a href="mailto:te@email.hu">✉️ E-mail</a>
-      <a href="https://mastodon.hu/@te">🐘 Mastodon</a>
-      <a href="https://makertube.net">🎬 MakerTube</a>
-    </section>
+      <h2><!-- SZERESZD MEG: 1. szekció címe --></h2>
+      <p><!-- SZERESZD MEG: szöveg --></p>
+
+      <h2><!-- SZERESZD MEG: 2. szekció címe --></h2>
+      <p><!-- SZERESZD MEG: szöveg --></p>
+
+      <!-- E-MAIL GOMB -->
+      <a class="email-btn" href="mailto:<!-- SZERESZD MEG: te@email.hu -->">
+        ✉️ Írj nekem
+      </a>
+    </div>
 
   </main>
 
-  <footer>
-    <!-- SZERESZD MEG: pl. "© 2026 Te" -->
-  </footer>
+  <footer><!-- SZERESZD MEG: © 2026 --></footer>
 </body>
 </html>   
